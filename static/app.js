@@ -43,6 +43,11 @@ class Chatbox {
                 this.submitTrainingData()
             }
         })
+
+        var loggedIn = localStorage.getItem('loggedIn');
+            if (loggedIn === 'false') {
+                window.location.href = '/login';
+            }
     }
 
     toggleState(chatbox) {

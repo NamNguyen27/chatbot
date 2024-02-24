@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for,jsonify
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
@@ -10,9 +10,23 @@ english_bot = ChatBot("Chatterbot", storage_adapter="chatterbot.storage.SQLStora
 
 trainer = ChatterBotCorpusTrainer(english_bot)
 trainBot = ListTrainer(english_bot)
+logged_in = False
 
+@app.route('/login', methods=['POST'])
+def login():
+        username = request.json['username']
+        password = request.json['password']
+        print(username,password)
+        if username == 'admin' and password == 'password':
+            return jsonify({"redirected": "true"})
+        else:
+            return jsonify({"redirected": "false"})
 
-@app.route("/")
+@app.route('/login')
+def renderLogin():
+    return render_template('login.html')
+
+@app.route("/home")
 def home():
     return render_template("base.html")
 
@@ -42,6 +56,8 @@ def delete_chatbot():
 def auto_train():
     trainer.train('chatterbot.corpus.english')
     return "Training successful" 
-
+@app.route('/logout')
+def logout():
+    return redirect(url_for('login'))
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)

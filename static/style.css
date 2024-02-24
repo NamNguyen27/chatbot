@@ -110,12 +110,10 @@ body {
     background: var(--primaryGradient);
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    padding: 15px 20px;
+    padding: 10px 15px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    box-shadow: var(--primaryBoxShadow);
+    
 }
 
 .chatbox__image--header {
@@ -167,7 +165,6 @@ body {
     justify-content: space-between;
     padding: 20px 20px;
     background: var(--secondaryGradient);
-    box-shadow: var(--secondaryBoxShadow);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     margin-top: 20px;
@@ -197,4 +194,78 @@ body {
     border-bottom-left-radius: 50px;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Màu nền tổng thể */
+    padding: 20px; /* Khoảng cách phía trong */
+}
+
+/* Thiết lập phần tử h1 */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #6a1b9a; /* Màu chữ tím */
+}
+
+/* Thiết lập phần tử label */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #6a1b9a; /* Màu chữ tím */
+}
+
+/* Thiết lập input */
+input[type="text"] {
+    width: calc(100% - 22px); /* Chiều rộng của input với border */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Đường viền của input */
+    border-radius: 3px;
+}
+
+/* Thiết lập nút submit và nút option */
+button.send__training__button,
+button.auto_training_button,
+button.delete_button,
+button.export_button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #6a1b9a; /* Màu nền tím */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Thiết lập nút option:hover */
+button.send__training__button:hover,
+button.auto_training_button:hover,
+button.delete_button:hover,
+button.export_button:hover {
+    background-color: #8737ad; /* Màu nền tím khi hover */
+}
+/* Thiết lập nút logout */
+.logout-container {
+    position: fixed;
+    bottom: 10px; /* Khoảng cách từ dưới cùng */
+    left: 20px; /* Khoảng cách từ góc trái */
+}
+
+.logout-button {
+    padding: 10px 20px;
+    background-color: #6a1b9a; /* Màu nền tím */
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Thiết lập nút logout:hover */
+.logout-button:hover {
+    background-color: #8737ad; /* Màu nền tím khi hover */
 }
